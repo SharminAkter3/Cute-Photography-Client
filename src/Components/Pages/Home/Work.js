@@ -4,8 +4,7 @@ import { Link } from 'react-router-dom';
 const Work = () => {
     return (
         <div>
-            {/* 
-            <div className=''>
+            <div>
                 <div className="card my-20 p-10 w-full h-98 bg-base-200 shadow-xlrounded-xl">
                     <div>
                         <div className='text-center my-5'>
@@ -23,8 +22,7 @@ const Work = () => {
                         <figure><img className='rounded-xl w-full h-full' src="https://weddingaffair.co.in/wp-content/uploads/2021/10/986cb85525d23ccee3ac576272f3fb87.jpg" alt="Shoes" /></figure>
                     </div>
                 </div>
-            </div> */}
-
+            </div>
 
         </div>
     );
