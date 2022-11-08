@@ -3,7 +3,7 @@ import React from 'react';
 const About = () => {
     return (
         <div>
-            <div className="hero my-10 p-5 w-full bg-base-200 rounded-xl">
+            <div className="hero my-20 p-10 w-full bg-base-100 rounded-xl shadow-xl">
                 <div className="hero-content flex-col lg:flex-row">
                     <div className='w-1/2 mr-0'>
                         <img src="https://i.pinimg.com/736x/07/af/dc/07afdc5d5a45ab149fa00489be65411d.jpg" alt='' className="max-w-sm rounded-lg shadow-2xl" />

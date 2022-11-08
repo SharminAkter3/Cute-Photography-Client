@@ -1,11 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 const Work = () => {
     return (
         <div>
             <div>
-                <div className="card my-20 p-10 w-full h-98 bg-base-200 shadow-xlrounded-xl">
+                <div className="card my-20 p-10 w-full h-98 bg-base-100 shadow-xl">
                     <div>
                         <div className='text-center my-5'>
                             <h2 className='text-5xl font-bold mb-5'>Recent Works</h2>
