@@ -1,6 +1,16 @@
 import React from 'react';
 
 const Login = () => {
+
+    const handleLogin = event => {
+        event.preventDefault();
+        const form = event.target;
+        const email = form.email.value;
+        const password = form.password.value;
+        console.log(email, password);
+    }
+
+
     return (
         <div>
             <div className="hero my-5 p-10 bg-base-100 shadow-2xl rounded-lg">
@@ -9,7 +19,7 @@ const Login = () => {
                         <img className='w-full h-3/5' src="https://img.freepik.com/free-vector/mobile-login-concept-illustration_114360-135.jpg?w=2000" alt="" />
                     </div>
                     <div className="card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
-                        <form className="card-body">
+                        <form onSubmit={handleLogin} className="card-body">
                             <h1 className="text-5xl font-bold">Login now!</h1>
                             <div className="form-control">
                                 <label className="label">
