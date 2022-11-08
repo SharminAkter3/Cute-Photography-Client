@@ -1,9 +1,12 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../../Components/Layout/Main";
+import AddService from "../../Components/Pages/AddService/AddService";
 import Blog from "../../Components/Pages/Blog/Blog";
+import Details from "../../Components/Pages/Details/Details";
 import Error from "../../Components/Pages/Error/Error";
 import Home from "../../Components/Pages/Home/Home";
 import Login from "../../Components/Pages/Login/Login";
+import MyRivews from "../../Components/Pages/MyRivews/MyRivews";
 import ServiceCard from "../../Components/Pages/ServiceCard/ServiceCard";
 import Services from "../../Components/Pages/Services/Services";
 import SignUp from "../../Components/Pages/SignUp/SignUp";
@@ -23,8 +26,8 @@ export const router = createBrowserRouter([
                 element: <Services></Services>
             },
             {
-                path: '/services/:id',
-                element: <ServiceCard></ServiceCard>
+                path: '/details/:id',
+                element: <Details></Details>
             },
             {
                 path: '/blog',
@@ -37,6 +40,14 @@ export const router = createBrowserRouter([
             {
                 path: '/signup',
                 element: <SignUp></SignUp>
+            },
+            {
+                path: '/myreviews',
+                element: <MyRivews></MyRivews>
+            },
+            {
+                path: '/addservice',
+                element: <AddService></AddService>
             },
             {
                 path: '/*',

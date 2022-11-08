@@ -18,7 +18,11 @@ const Header = () => {
         <li><Link to='/blog'>Blog</Link></li>
         <li>{
             user?.uid ?
-                <Link onClick={handleLogOut} >Log Out </Link>
+                <>
+                    <Link to='/myreviews'>My Reviews</Link>
+                    <Link to='/addservice'>Add Service</Link>
+                    <Link onClick={handleLogOut} >Log Out </Link>
+                </>
                 :
                 <Link to='login'>Login</Link>
         }

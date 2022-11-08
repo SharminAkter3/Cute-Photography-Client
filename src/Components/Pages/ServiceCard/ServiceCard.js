@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const ServiceCard = ({ service }) => {
-    const { name, img, price, description } = service;
+    const { _id, name, img, price, description } = service;
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
@@ -21,7 +21,9 @@ const ServiceCard = ({ service }) => {
                         }
                     </div>
                     <div className="card-actions justify-end">
-                        <button className="btn btn-outline btn-primary"> <Link>Details</Link></button>
+                        <Link to={`/details/${_id}`}>
+                            <button className="btn btn-outline btn-primary">Details</button>
+                        </Link>
                     </div>
                 </div>
             </div>
