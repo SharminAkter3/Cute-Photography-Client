@@ -19,7 +19,7 @@ const Header = () => {
         <li>{
             user?.uid ?
                 <>
-                    <Link to='/myreviews'>My Reviews</Link>
+                    <Link to='/reviews'>My Reviews</Link>
                     <Link to='/addservice'>Add Service</Link>
                     <Link onClick={handleLogOut} >Log Out </Link>
                 </>

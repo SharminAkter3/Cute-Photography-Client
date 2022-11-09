@@ -6,8 +6,7 @@ import Details from "../../Components/Pages/Details/Details";
 import Error from "../../Components/Pages/Error/Error";
 import Home from "../../Components/Pages/Home/Home";
 import Login from "../../Components/Pages/Login/Login";
-import MyRivews from "../../Components/Pages/MyRivews/MyRivews";
-import ServiceCard from "../../Components/Pages/ServiceCard/ServiceCard";
+import MyReviews from "../../Components/Pages/MyReviews/MyReviews";
 import Services from "../../Components/Pages/Services/Services";
 import SignUp from "../../Components/Pages/SignUp/SignUp";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
@@ -43,8 +42,8 @@ export const router = createBrowserRouter([
                 element: <SignUp></SignUp>
             },
             {
-                path: '/myreviews',
-                element: <MyRivews></MyRivews>
+                path: '/reviews',
+                element: <MyReviews></MyReviews>
             },
             {
                 path: '/addservice',

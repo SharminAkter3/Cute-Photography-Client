@@ -13,8 +13,8 @@ const ServiceCard = ({ service }) => {
 
                     <div className=''>
                         {
-                            description.length > 150 ?
-                                <p>{description.slice(0, 150) + '...'}<Link className='text-primary'>read more</Link></p>
+                            description.length > 100 ?
+                                <p>{description.slice(0, 100) + '...'}<Link className='text-primary'>read more</Link></p>
 
                                 :
                                 <p>{description}</p>
