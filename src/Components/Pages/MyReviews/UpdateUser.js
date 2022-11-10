@@ -14,7 +14,7 @@ const UpdateUser = () => {
         // event.preventDefault();
         console.log(user)
 
-        fetch(`http://localhost:5000/reviews/${storeUser._id}`, {
+        fetch(`https://service-assignment-server-liart.vercel.app/reviews/${storeUser._id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'

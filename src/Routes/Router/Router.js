@@ -24,7 +24,7 @@ export const router = createBrowserRouter([
             },
             {
                 path: '/services',
-                loader: () => fetch(`http://localhost:5000/services?limit=${3}`),
+                loader: () => fetch(`https://service-assignment-server-liart.vercel.app/services?limit=${3}`),
                 element: <Services></Services>
             },
             {
@@ -34,7 +34,7 @@ export const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <Details></Details>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-assignment-server-liart.vercel.app/services/${params.id}`)
             },
             {
                 path: '/blog',
@@ -59,7 +59,7 @@ export const router = createBrowserRouter([
             {
                 path: '/updateUser/:id',
                 element: <UpdateUser></UpdateUser>,
-                loader: ({ params }) => fetch(`http://localhost:5000/reviews/${params.id}`)
+                loader: ({ params }) => fetch(`https://service-assignment-server-liart.vercel.app/reviews/${params.id}`)
             },
             {
                 path: '/*',
