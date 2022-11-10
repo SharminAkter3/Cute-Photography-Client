@@ -1,6 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
+    const { user } = useContext(AuthContext);
+
     const { _id, serviceName, Reviwer, price, email, status } = review;
 
     return (
@@ -26,7 +30,9 @@ const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
             </td>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn btn-outline w-25 mr-5">Delete</button>
-                <button onClick={() => handleUpdate(_id)} className="btn btn-outline w-30 ">{status ? status : 'Edit'}</button>
+                <Link to={`/updateUser/${_id}`}>
+                    <button className="btn btn-outline w-30 ">Edit</button>
+                </Link>
             </th>
         </tr>
     );

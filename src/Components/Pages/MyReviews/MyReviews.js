@@ -52,24 +52,20 @@ const MyReviews = () => {
 
     // update review to database 
     const handleUpdate = id => {
+        // event.preventDefault();
+
         fetch(`http://localhost:5000/reviews/${id}`, {
-            method: 'PATCH',
+            method: 'PUT',
             headers: {
                 'content-type': 'application/json'
             },
-            body: JSON.stringify({ status: 'Approved' })
+            body: JSON.stringify({ user })
         })
             .then(res => res.json())
             .then(data => {
+                if (data.modifiedCount > 0)
+                    toast.success('Updated User Successfully');
                 console.log(data);
-                if (data.modifiedCount > 0) {
-                    const remaining = reviews.filter(rvw => rvw._id !== id);
-                    const approving = reviews.find(rvw => rvw._id === id);
-                    approving.status = 'Approved'
-
-                    const newReviews = [approving, ...remaining,];
-                    setReviews(newReviews);
-                }
             })
     }
 

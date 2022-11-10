@@ -9,7 +9,7 @@ const AddService = () => {
         event.preventDefault();
         const form = event.target;
         const name = form.name.value;
-        const photoURL = <img src={form.photoURL} alt=''></img>;
+        const photoURL = form.photoURL;
         const price = form.price.value;
         const description = form.description.value;
         console.log(name, photoURL, price, description);
