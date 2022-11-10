@@ -1,18 +1,31 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link, useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import ReviewRow from '../MyReviews/ReviewRow';
+import toast from 'react-hot-toast';
 
 const Details = () => {
     const { _id, name, img, price, description } = useLoaderData();
     const { user } = useContext(AuthContext);
+
+    const [reviews, setReviews] = useState([])
+
+    useEffect(() => {
+        fetch(`http://localhost:5000/reviews`)
+            .then(res => res.json())
+            .then(data => {
+                setReviews(data)
+            })
+    }, []);
 
     const handleReview = event => {
         event.preventDefault();
         const form = event.target;
         const reviewerName = `${form.firstName.value} ${form.lastName.value}`;
         const email = user?.email || 'unregistered';
-        const photoURL = user?.photoURL || 'unregistered';
+        const photoURL = user?.photoURL;
         const comment = form.comment.value;
+        console.log(email, photoURL, comment);
 
         const review = {
             serviceId: _id,
@@ -35,9 +48,8 @@ const Details = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('review order successfully');
+                    toast.success('Review Successfully');
                     form.reset();
-
                 }
             })
             .catch(error => console.error(error))
@@ -48,7 +60,9 @@ const Details = () => {
             <div>
                 <h1 className='text-3xl font-bold m-4'>Service Details: </h1>
                 <div className="card card-compact w-50 bg-base-100 shadow-xl">
+
                     <figure><img className='w-96 h-96 rounded-md' src={img} alt="Shoes" /></figure>
+
                     <div className="card-body">
                         <h2 className="card-title text-2xl font-bold">{name}</h2>
                         <h2 className='text-xl text-blue-800 font-semibold'>Price: ${price}</h2>
@@ -60,8 +74,8 @@ const Details = () => {
                             <button className="btn btn-outline btn-primary">Details</button>
                         </div>
                     </div>
-                </div>
-            </div>
+                </div >
+            </div >
             <div className='bg-base-100 shadow-2xl p-10 my-10 w-full rounded-lg'>
                 <h1 className='text-3xl font-bold'>Review:</h1>
                 {
@@ -84,6 +98,35 @@ const Details = () => {
                         :
                         <p className='text-2xl font-bold'>Please <Link className='text-primary' to='/login'>Login</Link> to add a review</p>
                 }
+            </div>
+            <div>
+
+                <div className="overflow-x-auto w-full">
+                    <table className="table w-full">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <label>
+                                        <input type="checkbox" className="checkbox" />
+                                    </label>
+                                </th>
+                                <th>Name</th>
+                                <th>Service Name</th>
+                                <th>Price</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody className='bg-base-100 shadow-2xl p-10 my-10 rounded-lg'>
+                            {
+                                reviews.map(review => <ReviewRow
+                                    key={review._id}
+                                    review={review}
+                                ></ReviewRow>)
+                            }
+                        </tbody>
+                    </table>
+                </div>
+
             </div>
         </div >
     );

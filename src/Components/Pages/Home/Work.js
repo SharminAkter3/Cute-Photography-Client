@@ -12,7 +12,7 @@ const Work = () => {
                                 Want to learn more about <br />  Cute Photography packages, please <button className="btn btn-link text-2xl">Contact Us</button></p>
                         </div>
                     </div>
-                    <div className=' grid grid-cols-3 gap-5 '>
+                    <div className=' grid grid-cols-2 md:grid-cols-3 gap-5 '>
                         <figure><img className='rounded-xl w-full h-full' src="https://images.shaadisaga.com/shaadisaga_production/photos/pictures/000/928/231/new_medium/tanviandco2.jpg?1561023416" alt="Shoes" /></figure>
                         <figure><img className='rounded-xl w-full h-full' src="https://www.getyourvenue.com/uploads/allied-service/54/service-main1.jpg" alt="Shoes" /></figure>
                         <figure><img className='rounded-xl w-full h-full' src="https://i.pinimg.com/originals/f1/00/e2/f100e27841fb4af6aab49bece5335deb.jpg" alt="Shoes" /></figure>

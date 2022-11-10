@@ -1,20 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
-const ReviewRow = ({ review }) => {
-    const { _id, serviceName, Reviwer, price, email } = review;
-
-    const handleDelete = id => {
-        const proceed = window.confirm('Are you sure? You want to cancel this order');
-        if (proceed) {
-            fetch(`http://localhost:5000/reviews/${id}`, {
-                method: 'DELETE',
-            })
-                .then(res => res.json())
-                .then(data => {
-                    console.log(data);
-                })
-        }
-    }
+const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
+    const { _id, serviceName, Reviwer, price, email, status } = review;
 
     return (
         <tr>
@@ -39,7 +26,7 @@ const ReviewRow = ({ review }) => {
             </td>
             <th>
                 <button onClick={() => handleDelete(_id)} className="btn btn-outline w-25 mr-5">Delete</button>
-                <button className="btn btn-outline w-30 ">Edit</button>
+                <button onClick={() => handleUpdate(_id)} className="btn btn-outline w-30 ">{status ? status : 'Edit'}</button>
             </th>
         </tr>
     );

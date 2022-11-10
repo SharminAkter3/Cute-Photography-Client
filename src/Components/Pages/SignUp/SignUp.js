@@ -3,16 +3,17 @@ import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const SignUp = () => {
-    const { createUser, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
     const navigate = useNavigate();
 
 
     const handleSignUp = event => {
         event.preventDefault();
         const form = event.target;
+        const name = form.name.value;
         const email = form.email.value;
         const password = form.password.value;
-        const photoURL = form.photoURL.value;
+        const photoURL = form.photoURL?.value;
         console.log(email, password, photoURL);
 
         createUser(email, password)
@@ -20,7 +21,7 @@ const SignUp = () => {
                 const user = result.user;
                 console.log(user);
                 form.reset();
-                navigate(form, { replace: true });
+                handleUpdateUserProfile(name, photoURL)
 
             })
             .catch(error => {
@@ -28,6 +29,17 @@ const SignUp = () => {
             })
 
     }
+
+    const handleUpdateUserProfile = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error));
+    }
+
 
     const handleGoogleSignIn = () => {
         signInWithGoogle()
