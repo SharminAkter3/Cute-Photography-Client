@@ -29,6 +29,8 @@ const MyReviews = () => {
 
     }, [user?.email, logOut]);
 
+
+    // delete review to database 
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure? You want to cancel this order');
         if (proceed) {
@@ -47,6 +49,8 @@ const MyReviews = () => {
         }
     }
 
+
+    // update review to database 
     const handleUpdate = id => {
         fetch(`http://localhost:5000/reviews/${id}`, {
             method: 'PATCH',

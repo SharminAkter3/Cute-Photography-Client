@@ -1,6 +1,8 @@
 import React, { createContext, useEffect, useState } from 'react';
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, GoogleAuthProvider, updateProfile, signInWithPopup, onAuthStateChanged, getAuth } from 'firebase/auth'
 import app from '../.././src/firebase/firebase.config';
+import { SpinnerCircular } from 'spinners-react/lib/esm/SpinnerCircular';
+
 
 export const AuthContext = createContext();
 const auth = getAuth(app);

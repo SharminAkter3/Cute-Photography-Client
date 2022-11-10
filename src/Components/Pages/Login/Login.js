@@ -2,9 +2,10 @@ import React, { useContext } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 import useTitle from '../../../hooks/useTitle';
+import { SpinnerCircular } from 'spinners-react/lib/esm/SpinnerCircular';
 
 const Login = () => {
-    const { signIn } = useContext(AuthContext);
+    const { signIn, loading } = useContext(AuthContext);
     const navigate = useNavigate();
     const location = useLocation();
     useTitle('Login');
@@ -17,6 +18,10 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        if (loading) {
+            return <div><SpinnerCircular enabled={true} /></div>
+        }
 
         signIn(email, password)
             .then(result => {

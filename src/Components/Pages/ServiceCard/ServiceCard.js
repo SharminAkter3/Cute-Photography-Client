@@ -7,8 +7,9 @@ const ServiceCard = ({ service }) => {
     return (
         <div>
             <div className="card card-compact w-96 bg-base-100 shadow-xl">
-                {/* <figure><img className='w-full h-96' src={img} alt="Shoes" /></figure> */}
                 <figure>
+                    {/* react-photo-view */}
+
                     <PhotoProvider>
                         <PhotoView src={img}>
                             <img src={img} style={{ objectFit: 'cover' }} className='h-80 w-full object-cover' alt="" />

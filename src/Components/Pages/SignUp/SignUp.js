@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
+import { SpinnerCircular } from 'spinners-react/lib/esm/SpinnerCircular';
 
 const SignUp = () => {
-    const { createUser, updateUserProfile, signInWithGoogle } = useContext(AuthContext);
+    const { createUser, updateUserProfile, signInWithGoogle, loading } = useContext(AuthContext);
     const navigate = useNavigate();
-
 
     const handleSignUp = event => {
         event.preventDefault();
@@ -15,6 +15,10 @@ const SignUp = () => {
         const password = form.password.value;
         const photoURL = form.photoURL?.value;
         console.log(email, password, photoURL);
+
+        if (loading) {
+            return <div><SpinnerCircular enabled={true} /></div>
+        }
 
         createUser(email, password)
             .then(result => {
