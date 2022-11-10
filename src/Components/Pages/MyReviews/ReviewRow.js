@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../../Contexts/AuthProvider';
 
 const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
     const { user } = useContext(AuthContext);
 
-    const { _id, serviceName, Reviwer, price, email, status } = review;
+    const { _id, serviceName, Reviwer, price, email } = review;
 
     return (
         <tr>
             <th>
                 {
                     user?.photoURL ?
-                        <img src={user?.photoURL} alt="" />
+                        <img className='w-24 h-24' src={user?.photoURL} alt="" />
                         :
                         <img className='w-24 h-24' src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png' alt=''></img>
                 }

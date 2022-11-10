@@ -9,7 +9,7 @@ const PrivateRoute = ({ children }) => {
 
 
     if (loading) {
-        return <div><SpinnerCircular enabled={true} /></div>
+        return <div className='text-primary text-center m-10'><SpinnerCircular enabled={true} /></div>
     }
 
     if (user) {
