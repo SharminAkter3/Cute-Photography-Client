@@ -37,7 +37,7 @@ const Login = () => {
                 fetch('http://localhost:5000/jwt', {
                     method: 'POST',
                     headers: {
-                        'Content-Type': 'application/json'
+                        'content-type': 'application/json'
                     },
                     body: JSON.stringify(currentUser)
                 })

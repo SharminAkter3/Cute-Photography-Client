@@ -89,7 +89,7 @@ const Details = () => {
                                     <input name='firstName' type="text" placeholder="First Name" className="input input-bordered w-full" />
                                     <input name='lastName' type="text" placeholder="Last Name" className="input input-bordered w-full" />
                                     <input name='phone' type="text" placeholder="Your Email" defaultValue={user?.email} className="input input-bordered w-full" readOnly />
-                                    <input name='email' type="text" placeholder="Photo URL" defaultValue={user?.photoURL} className="input input-bordered w-full" />
+                                    <input name='text' type="text" placeholder="Photo URL" defaultValue={user?.photoURL} className="input input-bordered w-full" />
                                 </div>
                                 <textarea name='comment' className="textarea textarea-bordered h-24 w-full my-5" placeholder="Comment"></textarea>
                                 <input className='btn btn-outline btn-primary text-center mb-4' type="submit" value="Add Review" />

@@ -10,9 +10,12 @@ const ReviewRow = ({ review, handleDelete, handleUpdate }) => {
     return (
         <tr>
             <th>
-                <label>
-                    <input type="checkbox" className="checkbox" />
-                </label>
+                {
+                    user?.photoURL ?
+                        <img src={user?.photoURL} alt="" />
+                        :
+                        <img className='w-24 h-24' src='https://www.iconpacks.net/icons/2/free-user-icon-3296-thumb.png' alt=''></img>
+                }
             </th>
             <td>
                 <div className="flex items-center space-x-3">
